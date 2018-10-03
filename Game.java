@@ -40,18 +40,18 @@ class Game {
         //Vertical Check
         v1=0;v2=0;v3=0;
         if(winner == null){
-            if(position/3 == 0){
+            if(position-3 <= 0){
                 v1 = position;
                 v2 = position+3;
                 v3 = position+6;
-            } else if(position/3 >= 2){
-                v1 = position-6;
-                v2 = position-3;
-                v3 = position;
-            } else if(position/3 == 1){
+            } else if((position-3 > 0) && (position+3 <= 9)){
                 v1 = position-3;
                 v2 = position;
                 v3 = position+3;
+            } else if(position+3 > 9){
+                v1 = position-6;
+                v2 = position-3;
+                v3 = position;
             }
             if((gamePositionMap.get(v1) != null && gamePositionMap.get(v2) != null && gamePositionMap.get(v3) != null)
                 && (gamePositionMap.get(v1).equals(gamePositionMap.get(v2)) && gamePositionMap.get(v3).equals(gamePositionMap.get(v2)))){
